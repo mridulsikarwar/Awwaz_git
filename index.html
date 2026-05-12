@@ -1,418 +1,751 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Awaaz — UP Ki Awaaz</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+Devanagari:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awaaz — The Voice of UP</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 </head>
+
 <body>
 
-<!-- =====================
-     NAVBAR
-===================== -->
-<nav>
-  <div class="nav-logo">
-    <!-- Inline soundwave logo in red -->
-    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="36" height="36" rx="8" fill="#C0392B"/>
-      <rect x="5"  y="14" width="3.5" height="8"  rx="1.5" fill="white"/>
-      <rect x="10.5" y="10" width="3.5" height="16" rx="1.5" fill="white"/>
-      <rect x="16" y="7"  width="3.5" height="22" rx="1.5" fill="white"/>
-      <rect x="21.5" y="10" width="3.5" height="16" rx="1.5" fill="white"/>
-      <rect x="27" y="14" width="3.5" height="8"  rx="1.5" fill="white"/>
-      <rect x="5" y="29" width="26" height="2" rx="1" fill="#C9A84C"/>
-    </svg>
-    <span class="nav-logo-text">AWAAZ</span>
-  </div>
-
-  <ul class="nav-links">
-    <li><a href="#motive">हमारे बारे में</a></li>
-    <li><a href="#pillars">मुद्दे</a></li>
-    <li><a href="#questions">सवाल</a></li>
-    <li><a href="#approach">हमारा तरीका</a></li>
-    <li><a href="#join" class="nav-cta">जुड़ें</a></li>
-  </ul>
-
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
+  <!-- =====================================================
+       LANGUAGE TOGGLE BUTTON  (fixed, always visible)
+       Clicking this switches between English and Hindi
+  ===================================================== -->
+  <button id="lang-toggle" onclick="toggleLanguage()" aria-label="Switch language">
+    हिंदी
   </button>
-</nav>
-
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#motive" onclick="closeMobile()">हमारे बारे में</a>
-  <a href="#pillars" onclick="closeMobile()">मुद्दे</a>
-  <a href="#questions" onclick="closeMobile()">सवाल</a>
-  <a href="#approach" onclick="closeMobile()">हमारा तरीका</a>
-  <a href="#join" onclick="closeMobile()" style="color: var(--gold);">जुड़ें →</a>
-</div>
 
 
-<!-- =====================
-     HERO
-===================== -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-badge">UP · 2027 · Ek Awaaz, Ek Udaan</div>
+  <!-- =====================================================
+       NAVIGATION BAR
+  ===================================================== -->
+  <nav id="navbar">
+    <div class="container nav-inner">
 
-    <!-- Large soundwave logo -->
-    <div class="hero-logo">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-        <circle cx="50" cy="50" r="50" fill="rgba(192,57,43,0.12)"/>
-        <rect x="15"  y="38" width="8" height="24" rx="4" fill="#C0392B"/>
-        <rect x="27"  y="28" width="8" height="44" rx="4" fill="#C0392B"/>
-        <rect x="39"  y="20" width="8" height="60" rx="4" fill="#C0392B"/>
-        <rect x="51"  y="28" width="8" height="44" rx="4" fill="#C0392B"/>
-        <rect x="63"  y="35" width="8" height="30" rx="4" fill="#C0392B"/>
-        <rect x="75"  y="38" width="8" height="24" rx="4" fill="#C0392B"/>
-        <rect x="15" y="82" width="68" height="5" rx="2.5" fill="#C9A84C"/>
-      </svg>
-    </div>
-
-    <p class="hero-hindi">आवाज़ उठाओ — UP बदलेगा</p>
-    <h1 class="hero-title">A<span>WAAZ</span></h1>
-    <p class="hero-tagline">
-      रोज़गार, शिक्षा और स्वास्थ्य — <strong>UP के तीन सबसे बड़े सवाल।</strong><br>
-      हम जवाब माँगते हैं। हम बेहतर रास्ता दिखाते हैं।
-    </p>
-    <div class="hero-buttons">
-      <button class="btn-primary" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">आवाज़ में शामिल हों</button>
-      <button class="btn-outline" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'})">हमारे मुद्दे जानें</button>
-    </div>
-  </div>
-
-  <div class="scroll-cue">SCROLL</div>
-</section>
-
-
-<!-- =====================
-     STATS BAND
-===================== -->
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="fade-up">
-      <div class="stat-num">24 Cr+</div>
-      <div class="stat-label">UP की जनसंख्या<br>जिसकी आवाज़ मायने रखती है</div>
-    </div>
-    <div class="fade-up" style="transition-delay:0.1s">
-      <div class="stat-num">42 Lakh</div>
-      <div class="stat-label">पढ़े-लिखे युवा<br>जो बेरोज़गार हैं UP में</div>
-    </div>
-    <div class="fade-up" style="transition-delay:0.2s">
-      <div class="stat-num">403</div>
-      <div class="stat-label">विधानसभा सीटें<br>जहाँ आपकी आवाज़ पहुँचनी चाहिए</div>
-    </div>
-  </div>
-</div>
-
-
-<!-- =====================
-     ABOUT / MOTIVE
-===================== -->
-<section class="about" id="motive">
-  <div class="about-grid">
-    <div>
-      <p class="section-label fade-up">हमारे बारे में</p>
-      <h2 class="section-title fade-up">हम कोई पार्टी<br>नहीं — हम <span>आवाज़</span> हैं</h2>
-      <p class="section-sub fade-up" style="margin-bottom:20px">
-        Awaaz एक movement है — जो UP के उन करोड़ों लोगों के लिए खड़ा है जो रोज़गार, बेहतर स्कूल और सस्ती स्वास्थ्य सेवा चाहते हैं।
-      </p>
-      <p class="section-sub fade-up">
-        हम किसी सरकार या पार्टी की आलोचना नहीं करते। हम सवाल करते हैं — और साथ में एक <strong style="color:var(--navy)">बेहतर रास्ता</strong> भी बताते हैं। क्योंकि सिर्फ आलोचना काफी नहीं, समाधान ज़रूरी है।
-      </p>
-    </div>
-    <div class="about-visual fade-up">
-      <!-- Decorative large soundwave in about section -->
-      <svg class="about-soundwave" viewBox="0 0 340 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20"  y="80"  width="18" height="60"  rx="9" fill="#C0392B" opacity="0.18"/>
-        <rect x="46"  y="55"  width="18" height="110" rx="9" fill="#C0392B" opacity="0.30"/>
-        <rect x="72"  y="30"  width="18" height="160" rx="9" fill="#C0392B" opacity="0.55"/>
-        <rect x="98"  y="50"  width="18" height="120" rx="9" fill="#C0392B" opacity="0.75"/>
-        <rect x="124" y="40"  width="18" height="140" rx="9" fill="#C0392B" opacity="0.90"/>
-        <rect x="150" y="20"  width="18" height="180" rx="9" fill="#C0392B"/>
-        <rect x="176" y="40"  width="18" height="140" rx="9" fill="#C0392B" opacity="0.90"/>
-        <rect x="202" y="50"  width="18" height="120" rx="9" fill="#C0392B" opacity="0.75"/>
-        <rect x="228" y="30"  width="18" height="160" rx="9" fill="#C0392B" opacity="0.55"/>
-        <rect x="254" y="55"  width="18" height="110" rx="9" fill="#C0392B" opacity="0.30"/>
-        <rect x="280" y="80"  width="18" height="60"  rx="9" fill="#C0392B" opacity="0.18"/>
-        <!-- Gold underline -->
-        <rect x="20" y="196" width="278" height="8" rx="4" fill="#C9A84C"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-
-<!-- =====================
-     THREE PILLARS
-===================== -->
-<section class="pillars" id="pillars">
-  <div class="pillars-inner">
-    <div class="pillars-header">
-      <p class="section-label fade-up">हमारे तीन मुद्दे</p>
-      <h2 class="section-title fade-up">तीन सवाल जो<br>UP को <span>बदल सकते हैं</span></h2>
-      <p class="section-sub fade-up">रोज़गार, शिक्षा और स्वास्थ्य — ये तीन हैं UP के सबसे बड़े दर्द। हम इन पर बात करते हैं, data दिखाते हैं और बेहतर रास्ता सुझाते हैं।</p>
-    </div>
-
-    <div class="pillars-grid">
-
-      <!-- Employment -->
-      <div class="pillar-card pillar-employment fade-up">
-        <div class="pillar-icon">💼</div>
-        <h3 class="pillar-title">Employment</h3>
-        <p class="pillar-hindi">रोज़गार</p>
-        <p class="pillar-desc">
-          UP में हर साल लाखों युवा graduation करते हैं — लेकिन उनमें से बड़ी संख्या के पास कोई नौकरी नहीं है। Private sector छोटा है, government jobs में seats कम हैं। यह कैसे बदलेगा?
-        </p>
-        <div class="pillar-question">
-          "अगर हम UP में 10 नए industrial zones बनाएं, तो क्या 5 लाख jobs in 3 years possible हैं?"
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="pillar-card pillar-education fade-up" style="transition-delay:0.1s">
-        <div class="pillar-icon">📚</div>
-        <h3 class="pillar-title">Education</h3>
-        <p class="pillar-hindi">शिक्षा</p>
-        <p class="pillar-desc">
-          UP के government schools में teachers की कमी, digital access नहीं, और higher education में quality का सवाल है। एक बच्चे की padhai उसके ZIP code से decide नहीं होनी चाहिए।
-        </p>
-        <div class="pillar-question">
-          "क्या हर block में एक model school और हर tehsil में एक skill center possible है — 2027 तक?"
-        </div>
-      </div>
-
-      <!-- Healthcare -->
-      <div class="pillar-card pillar-health fade-up" style="transition-delay:0.2s">
-        <div class="pillar-icon">🏥</div>
-        <h3 class="pillar-title">Healthcare</h3>
-        <p class="pillar-hindi">स्वास्थ्य</p>
-        <p class="pillar-desc">
-          UP के rural areas में doctors नहीं हैं, hospitals दूर हैं, और medicines महंगी हैं। एक गरीब परिवार की सबसे बड़ी financial crisis अक्सर एक बड़ी बीमारी होती है।
-        </p>
-        <div class="pillar-question">
-          "क्या हर 30km पर एक functional primary health centre और एक telemedicine hub हो सकता है?"
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- =====================
-     QUESTIONS SECTION
-===================== -->
-<section class="questions" id="questions">
-  <div class="questions-inner">
-    <p class="section-label fade-up" style="color:var(--red2)">हमारे सवाल</p>
-    <h2 class="section-title fade-up">वो सवाल जो<br><span>पूछे जाने चाहिए</span></h2>
-    <p class="section-sub fade-up">
-      हम किसी को दोष नहीं देते — लेकिन ये सवाल UP की जनता के हैं, और इनका जवाब मिलना चाहिए।
-    </p>
-
-    <div class="q-list">
-      <div class="q-item fade-up">
-        <div class="q-number">01</div>
-        <div class="q-text">UP में <strong>B.Tech और graduate करने वाले युवाओं</strong> में से कितने प्रतिशत को उनकी field में नौकरी मिलती है — और क्या यह data publicly available है?</div>
-      </div>
-      <div class="q-item fade-up" style="transition-delay:0.05s">
-        <div class="q-number">02</div>
-        <div class="q-text">Government schools में <strong>teacher vacancy rate</strong> कितना है — और खाली पदों को भरने के लिए timeline क्या है?</div>
-      </div>
-      <div class="q-item fade-up" style="transition-delay:0.1s">
-        <div class="q-number">03</div>
-        <div class="q-text">UP के rural districts में <strong>average patient-to-doctor ratio</strong> क्या है — और WHO standard से कितना दूर है?</div>
-      </div>
-      <div class="q-item fade-up" style="transition-delay:0.15s">
-        <div class="q-number">04</div>
-        <div class="q-text">Industrial investment के बाद <strong>actual jobs created vs announced</strong> — यह independent verification कब और कैसे होती है?</div>
-      </div>
-      <div class="q-item fade-up" style="transition-delay:0.2s">
-        <div class="q-number">05</div>
-        <div class="q-text">UP में <strong>skill development centers</strong> में trained youth में से कितने को actually employment मिला — success rate क्या है?</div>
-      </div>
-      <div class="q-item fade-up" style="transition-delay:0.25s">
-        <div class="q-number">06</div>
-        <div class="q-text">Primary healthcare centers में <strong>medicine availability rate</strong> कितना है — और shortage होने पर accountability किसकी है?</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- =====================
-     APPROACH
-===================== -->
-<section class="approach" id="approach">
-  <div class="approach-inner">
-    <div class="approach-header">
-      <p class="section-label fade-up">हमारा तरीका</p>
-      <h2 class="section-title fade-up">हम कैसे काम करते हैं</h2>
-      <p class="section-sub fade-up">Awaaz का तरीका बिल्कुल साफ है — सवाल करो, data लाओ, solution सुझाओ और सरकार के साथ मिलकर बेहतरी की माँग करो।</p>
-    </div>
-
-    <div class="approach-grid">
-      <div class="approach-card fade-up">
-        <div class="approach-icon">🔍</div>
+      <!-- Logo: Awaaz soundwave SVG + wordmark -->
+      <a href="#" class="nav-logo" aria-label="Awaaz home">
+        <svg width="30" height="22" viewBox="0 0 90 70" fill="none" aria-hidden="true">
+          <line x1="45" y1="4"  x2="45" y2="66" stroke="#C0392B" stroke-width="7"  stroke-linecap="round"/>
+          <line x1="31" y1="14" x2="31" y2="56" stroke="#C0392B" stroke-width="5"  stroke-linecap="round" opacity="0.8"/>
+          <line x1="59" y1="14" x2="59" y2="56" stroke="#C0392B" stroke-width="5"  stroke-linecap="round" opacity="0.8"/>
+          <line x1="17" y1="26" x2="17" y2="44" stroke="#C0392B" stroke-width="4"  stroke-linecap="round" opacity="0.5"/>
+          <line x1="73" y1="26" x2="73" y2="44" stroke="#C0392B" stroke-width="4"  stroke-linecap="round" opacity="0.5"/>
+          <line x1="4"  y1="32" x2="4"  y2="38" stroke="#C0392B" stroke-width="3"  stroke-linecap="round" opacity="0.22"/>
+          <line x1="86" y1="32" x2="86" y2="38" stroke="#C0392B" stroke-width="3"  stroke-linecap="round" opacity="0.22"/>
+        </svg>
         <div>
-          <div class="approach-title">Data-driven सवाल</div>
-          <div class="approach-desc">हम emotion नहीं, facts के आधार पर सवाल करते हैं। RTI, government reports और independent research से data लाकर ज़मीनी सच दिखाते हैं।</div>
+          <div class="nav-logo-name">AWAAZ</div>
+          <div class="nav-logo-sub">
+            <span class="en">The Voice of UP</span>
+            <span class="hi">उत्तर प्रदेश की आवाज़</span>
+          </div>
         </div>
-      </div>
-      <div class="approach-card fade-up" style="transition-delay:0.1s">
-        <div class="approach-icon">💡</div>
-        <div>
-          <div class="approach-title">Constructive approach</div>
-          <div class="approach-desc">हम सिर्फ criticize नहीं करते। हर सवाल के साथ एक possible solution भी सुझाते हैं — जो दूसरे states या countries में काम कर चुका है।</div>
-        </div>
-      </div>
-      <div class="approach-card fade-up" style="transition-delay:0.15s">
-        <div class="approach-icon">🤝</div>
-        <div>
-          <div class="approach-title">सरकार के साथ — against नहीं</div>
-          <div class="approach-desc">हम current government के साथ मिलकर UP को बेहतर बनाना चाहते हैं। Opposition नहीं, collaboration — क्योंकि UP का भला किसी एक party से नहीं, सबके साथ होगा।</div>
-        </div>
-      </div>
-      <div class="approach-card fade-up" style="transition-delay:0.2s">
-        <div class="approach-icon">📢</div>
-        <div>
-          <div class="approach-title">जनता की आवाज़ amplify करना</div>
-          <div class="approach-desc">आपके district में क्या समस्या है? हम उसे collect करते हैं, document करते हैं, और सही जगह पहुँचाते हैं — social media से लेकर policy makers तक।</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- =====================
-     DOS AND DON'TS
-===================== -->
-<section class="dos-donts">
-  <div class="dos-donts-inner">
-    <div class="dos-donts-header">
-      <p class="section-label fade-up">हमारे principles</p>
-      <h2 class="section-title fade-up">क्या करेंगे — <span>क्या नहीं</span></h2>
-      <p class="section-sub fade-up">Awaaz movement इन values पर चलती है — यह हमारा वादा है UP की जनता से।</p>
-    </div>
-
-    <div class="dd-grid">
-      <!-- DOS -->
-      <div class="fade-up">
-        <div class="dd-col-title dd-do-title">
-          <span>✓</span> हम करेंगे
-        </div>
-        <ul class="dd-list">
-          <li class="dd-item"><span class="dd-icon dd-do-icon">✓</span> Data और facts के आधार पर UP की समस्याएँ सामने रखेंगे</li>
-          <li class="dd-item"><span class="dd-icon dd-do-icon">✓</span> हर मुद्दे पर एक constructive और workable solution suggest करेंगे</li>
-          <li class="dd-item"><span class="dd-icon dd-do-icon">✓</span> Current government को बेहतर काम करने के लिए encourage करेंगे</li>
-          <li class="dd-item"><span class="dd-icon dd-do-icon">✓</span> UP के युवाओं, महिलाओं और किसानों की real problems document करेंगे</li>
-          <li class="dd-item"><span class="dd-icon dd-do-icon">✓</span> RTI और legal तरीकों से जवाबदेही माँगेंगे</li>
-          <li class="dd-item"><span class="dd-icon dd-do-icon">✓</span> सभी communities को साथ लेकर चलेंगे — बिना किसी भेदभाव के</li>
-        </ul>
-      </div>
-
-      <!-- DON'TS -->
-      <div class="fade-up" style="transition-delay:0.1s">
-        <div class="dd-col-title dd-dont-title">
-          <span>✕</span> हम नहीं करेंगे
-        </div>
-        <ul class="dd-list">
-          <li class="dd-item"><span class="dd-icon dd-dont-icon">✕</span> किसी भी governing या ex-governing party की personal या political आलोचना नहीं</li>
-          <li class="dd-item"><span class="dd-icon dd-dont-icon">✕</span> Caste, religion या region के आधार पर कोई बात नहीं</li>
-          <li class="dd-item"><span class="dd-icon dd-dont-icon">✕</span> बिना proof के कोई allegation या rumor नहीं फैलाएंगे</li>
-          <li class="dd-item"><span class="dd-icon dd-dont-icon">✕</span> किसी नेता या व्यक्ति पर personal attack नहीं</li>
-          <li class="dd-item"><span class="dd-icon dd-dont-icon">✕</span> Hate speech, divisive content या inflammatory language नहीं</li>
-          <li class="dd-item"><span class="dd-icon dd-dont-icon">✕</span> Election के दौरान किसी specific candidate या party को endorse नहीं</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- =====================
-     JOIN SECTION
-===================== -->
-<section class="join" id="join">
-  <div class="join-inner">
-    <p class="section-label fade-up" style="color:var(--gold)">शामिल हों</p>
-    <h2 class="section-title fade-up">अपनी <span style="color:var(--gold)">आवाज़</span><br>हम तक पहुँचाएं</h2>
-    <p class="section-sub fade-up">
-      आपके district में क्या problem है? आप Awaaz के साथ कैसे जुड़ना चाहते हैं? बताइए — हम सुन रहे हैं।
-    </p>
-
-    <div class="join-form fade-up">
-      <input type="text" class="join-input" id="nameInput" placeholder="आपका नाम — Your name" />
-      <input type="tel" class="join-input" id="phoneInput" placeholder="WhatsApp number" />
-      <select class="join-select" id="districtSelect">
-        <option value="">अपना district चुनें</option>
-        <option>Lucknow</option><option>Agra</option><option>Varanasi</option>
-        <option>Kanpur</option><option>Prayagraj</option><option>Gorakhpur</option>
-        <option>Meerut</option><option>Mathura</option><option>Bareilly</option>
-        <option>Noida / Gautam Buddh Nagar</option><option>Ghaziabad</option>
-        <option>Ayodhya</option><option>Azamgarh</option><option>Moradabad</option>
-        <option>Saharanpur</option><option>Muzaffarnagar</option><option>Aligarh</option>
-        <option>Jhansi</option><option>Firozabad</option><option>Bahraich</option>
-        <option>Sitapur</option><option>Lakhimpur Kheri</option><option>Hardoi</option>
-        <option>Unnao</option><option>Rae Bareli</option><option>Sultanpur</option>
-        <option>Basti</option><option>Deoria</option><option>Ballia</option>
-        <option>Ghazipur</option><option>Jaunpur</option><option>Mirzapur</option>
-        <option>Sonbhadra</option><option>Banda</option><option>Chitrakoot</option>
-        <option>अन्य / Other</option>
-      </select>
-      <select class="join-select" id="roleSelect">
-        <option value="">आप क्या करना चाहते हैं?</option>
-        <option>अपने district की problem share करना</option>
-        <option>Volunteer / ground worker बनना</option>
-        <option>Social media team में जुड़ना</option>
-        <option>Research / data team में जुड़ना</option>
-        <option>बस update रहना चाहता/चाहती हूँ</option>
-      </select>
-      <button class="join-submit" onclick="handleJoin()">आवाज़ बनो → Awaaz Bano</button>
-      <div class="success-msg" id="successMsg">
-        🎉 शुक्रिया! आपकी आवाज़ हम तक पहुँच गई। हम जल्द ही आपसे WhatsApp पर connect करेंगे।
-      </div>
-    </div>
-
-    <p class="join-note fade-up">
-      आपकी personal information किसी के साथ share नहीं की जाएगी।<br>
-      यह movement non-partisan है — किसी भी party से जुड़े लोग शामिल हो सकते हैं।
-    </p>
-
-    <div class="social-row fade-up">
-      <a href="#" class="social-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Instagram
       </a>
-      <a href="#" class="social-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        Facebook
-      </a>
-      <a href="#" class="social-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li><a href="#about">    <span class="en">About</span>    <span class="hi">हमारे बारे में</span></a></li>
+        <li><a href="#pillars">  <span class="en">Our Focus</span><span class="hi">हमारे मुद्दे</span></a></li>
+        <li><a href="#questions"><span class="en">Questions</span> <span class="hi">सवाल</span></a></li>
+        <li><a href="#approach"> <span class="en">Approach</span> <span class="hi">तरीका</span></a></li>
+        <!-- Instagram link -->
+        <li>
+          <a class="nav-instagram"
+             href="https://www.instagram.com/awaaz.movement/?utm_source=ig_web_button_share_sheet"
+             target="_blank" rel="noopener noreferrer">
+            <!-- Instagram icon SVG -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+            @awaaz.movement
+          </a>
+        </li>
+        <li><a href="#join" class="nav-cta">
+          <span class="en">Raise Your Voice</span>
+          <span class="hi">आवाज़ उठाओ</span>
+        </a></li>
+      </ul>
+
     </div>
-  </div>
-</section>
+  </nav>
 
 
-<!-- =====================
-     FOOTER
-===================== -->
-<footer>
-  <p style="margin-bottom:8px">
-    <strong>AWAAZ</strong> — UP Ki Awaaz · आवाज़ उठाओ, UP बदलेगा
-  </p>
-  <p>
-    यह movement non-partisan है। हम किसी भी राजनीतिक दल से affiliated नहीं हैं।<br>
-    सभी content public data और verified sources पर आधारित है।
-  </p>
-</footer>
+  <!-- =====================================================
+       HERO SECTION
+  ===================================================== -->
+  <section class="hero" id="home">
+    <div class="hero-watermark" aria-hidden="true">AWAAZ</div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-eyebrow">
+          <span class="en">The Voice of Uttar Pradesh</span>
+          <span class="hi">उत्तर प्रदेश की आवाज़</span>
+        </div>
+
+        <!-- Large Awaaz soundwave logo -->
+        <div style="margin-bottom:1.5rem;" aria-label="Awaaz logo">
+          <svg width="210" height="80" viewBox="0 0 420 160" fill="none">
+            <line x1="210" y1="4"   x2="210" y2="156" stroke="#C0392B" stroke-width="14" stroke-linecap="round"/>
+            <line x1="170" y1="20"  x2="170" y2="140" stroke="#C0392B" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+            <line x1="250" y1="20"  x2="250" y2="140" stroke="#C0392B" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+            <line x1="130" y1="38"  x2="130" y2="122" stroke="#C0392B" stroke-width="7"  stroke-linecap="round" opacity="0.65"/>
+            <line x1="290" y1="38"  x2="290" y2="122" stroke="#C0392B" stroke-width="7"  stroke-linecap="round" opacity="0.65"/>
+            <line x1="90"  y1="56"  x2="90"  y2="104" stroke="#C0392B" stroke-width="5"  stroke-linecap="round" opacity="0.42"/>
+            <line x1="330" y1="56"  x2="330" y2="104" stroke="#C0392B" stroke-width="5"  stroke-linecap="round" opacity="0.42"/>
+            <line x1="50"  y1="70"  x2="50"  y2="90"  stroke="#C0392B" stroke-width="3.5" stroke-linecap="round" opacity="0.2"/>
+            <line x1="370" y1="70"  x2="370" y2="90"  stroke="#C0392B" stroke-width="3.5" stroke-linecap="round" opacity="0.2"/>
+            <rect x="160" y="162" width="100" height="5" rx="2.5" fill="#C9A84C"/>
+          </svg>
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="en">Teri Awaaz,<br/><span class="accent">Tera Haq.</span></span>
+          <span class="hi">तेरी आवाज़,<br/><span class="accent">तेरा हक़।</span></span>
+        </h1>
+
+        <p class="hero-subline">
+          <span class="en">Raise your voice — UP is listening.</span>
+          <span class="hi">आवाज़ उठाना हक़ है — UP सुन रहा है।</span>
+        </p>
+
+        <p class="hero-desc">
+          <span class="en">Awaaz is a citizen's movement asking the right questions about <strong>employment, education, and healthcare</strong> in Uttar Pradesh — without blame, without hate, and without silence.</span>
+          <span class="hi">आवाज़ एक नागरिक आंदोलन है जो उत्तर प्रदेश में <strong>रोज़गार, शिक्षा और स्वास्थ्य</strong> के बारे में सही सवाल पूछता है — बिना आरोप, बिना नफ़रत, और बिना चुप्पी के।</span>
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#pillars" class="btn-primary">
+            <span class="en">See Our Focus</span>
+            <span class="hi">हमारे मुद्दे देखें</span>
+          </a>
+          <a href="#questions" class="btn-outline">
+            <span class="en">Questions We Ask</span>
+            <span class="hi">हमारे सवाल</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span class="en">Scroll</span>
+      <span class="hi">नीचे देखें</span>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       STATS STRIP  (3 key UP statistics)
+  ===================================================== -->
+  <section class="stats-strip" aria-label="UP statistics">
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="fade-up">
+          <div class="stat-number">2.3 Cr+</div>
+          <div class="stat-label">
+            <span class="en">Registered unemployed youth<br/>in Uttar Pradesh</span>
+            <span class="hi">उत्तर प्रदेश में पंजीकृत<br/>बेरोज़गार युवा</span>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="stat-number">54%</div>
+          <div class="stat-label">
+            <span class="en">Govt school students lack<br/>basic learning outcomes</span>
+            <span class="hi">सरकारी स्कूल के छात्र जिन्हें<br/>बुनियादी शिक्षा नहीं मिली</span>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="stat-number">1 Doctor</div>
+          <div class="stat-label">
+            <span class="en">Per 2,000+ patients<br/>in rural UP districts</span>
+            <span class="hi">प्रति 2,000+ मरीज़<br/>ग्रामीण UP ज़िलों में</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       ABOUT SECTION
+  ===================================================== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Quote card (left) -->
+        <div class="about-card fade-up">
+          <div class="about-quote">
+            <span class="en">"Ek awaaz kuch nahi karti —<br/><span>"croro awaazein sab kuch badal deti hain."</span></span>
+            <span class="hi">"एक आवाज़ कुछ नहीं करती —<br/><span>करोड़ों आवाज़ें सब कुछ बदल देती हैं।"</span></span>
+          </div>
+          <div class="gold-bar"></div>
+          <div class="about-quote-hi">
+            <span class="en" style="font-family:var(--font-hindi);font-size:14px;color:rgba(255,255,255,0.45);">एक आवाज़ कुछ नहीं करती — करोड़ों आवाज़ें सब कुछ बदल देती हैं।</span>
+          </div>
+        </div>
+
+        <!-- Text (right) -->
+        <div class="about-text fade-up">
+          <p class="section-label">
+            <span class="en">Who We Are</span>
+            <span class="hi">हम कौन हैं</span>
+          </p>
+          <h2 class="section-title">
+            <span class="en">A movement, not a <span>complaint.</span></span>
+            <span class="hi">एक आंदोलन, <span>शिकायत नहीं।</span></span>
+          </h2>
+          <div class="gold-bar"></div>
+          <p>
+            <span class="en">Awaaz is a citizen's movement with one goal — making sure the <strong>real issues of UP's people</strong> are heard loudly, clearly, and respectfully.</span>
+            <span class="hi">आवाज़ एक नागरिक आंदोलन है जिसका एक लक्ष्य है — यह सुनिश्चित करना कि <strong>UP के लोगों के असली मुद्दे</strong> ज़ोर से, स्पष्ट और सम्मान के साथ सुने जाएं।</span>
+          </p>
+          <p>
+            <span class="en">We don't blame. We don't abuse. We <strong>ask questions</strong> — the kind every responsible government should welcome.</span>
+            <span class="hi">हम दोष नहीं देते। हम गाली नहीं देते। हम <strong>सवाल पूछते हैं</strong> — वो सवाल जो हर ज़िम्मेदार सरकार का स्वागत करना चाहिए।</span>
+          </p>
+          <p>
+            <span class="en">Our three focus areas — <strong>rozgaar, shiksha, aur swasthya</strong> — are basic rights every person in UP deserves.</span>
+            <span class="hi">हमारे तीन मुख्य मुद्दे — <strong>रोज़गार, शिक्षा और स्वास्थ्य</strong> — ये वो बुनियादी अधिकार हैं जो UP के हर इंसान को मिलने चाहिए।</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       THREE PILLARS  (Employment / Education / Healthcare)
+  ===================================================== -->
+  <section class="pillars" id="pillars">
+    <div class="container">
+
+      <div class="pillars-header fade-up">
+        <p class="section-label">
+          <span class="en">Our Three Focus Areas</span>
+          <span class="hi">हमारे तीन मुख्य मुद्दे</span>
+        </p>
+        <h2 class="section-title">
+          <span class="en">What we are <span>standing for</span></span>
+          <span class="hi">हम किसके लिए <span>खड़े हैं</span></span>
+        </h2>
+        <p>
+          <span class="en">Every question we ask, every voice we raise — it all comes back to these three issues that touch every family in UP.</span>
+          <span class="hi">हमारा हर सवाल, हमारी हर आवाज़ — सब इन तीन मुद्दों पर वापस आती है जो UP के हर परिवार को छूती है।</span>
+        </p>
+      </div>
+
+      <div class="pillars-grid stagger">
+
+        <!-- Employment -->
+        <div class="pillar-card fade-up">
+          <div class="pillar-icon employ">💼</div>
+          <h3 class="pillar-title">
+            <span class="en">Employment</span>
+            <span class="hi">रोज़गार</span>
+          </h3>
+          <p class="pillar-tag">
+            <span class="en">रोज़गार</span>
+            <span class="hi">Employment</span>
+          </p>
+          <p class="pillar-desc">
+            <span class="en">UP produces millions of graduates every year. We ask why job creation lags behind and what concrete steps can create dignified employment for every young person across all 75 districts.</span>
+            <span class="hi">UP हर साल लाखों स्नातक तैयार करता है। हम पूछते हैं कि रोज़गार सृजन क्यों पिछड़ रहा है और सभी 75 ज़िलों में युवाओं के लिए सम्मानजनक रोज़गार कैसे बनाया जाए।</span>
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="pillar-card fade-up">
+          <div class="pillar-icon edu">📚</div>
+          <h3 class="pillar-title">
+            <span class="en">Education</span>
+            <span class="hi">शिक्षा</span>
+          </h3>
+          <p class="pillar-tag">
+            <span class="en">शिक्षा</span>
+            <span class="hi">Education</span>
+          </p>
+          <p class="pillar-desc">
+            <span class="en">A child in Lucknow and a child in Sonbhadra both deserve quality education. We ask how schools can be strengthened, teacher vacancies filled, and dropout rates genuinely reduced.</span>
+            <span class="hi">लखनऊ का बच्चा और सोनभद्र का बच्चा — दोनों गुणवत्तापूर्ण शिक्षा के हकदार हैं। हम पूछते हैं कि स्कूलों को कैसे मज़बूत किया जाए, शिक्षक रिक्तियां कैसे भरी जाएं।</span>
+          </p>
+        </div>
+
+        <!-- Healthcare -->
+        <div class="pillar-card fade-up">
+          <div class="pillar-icon health">🏥</div>
+          <h3 class="pillar-title">
+            <span class="en">Healthcare</span>
+            <span class="hi">स्वास्थ्य</span>
+          </h3>
+          <p class="pillar-tag">
+            <span class="en">स्वास्थ्य</span>
+            <span class="hi">Healthcare</span>
+          </p>
+          <p class="pillar-desc">
+            <span class="en">A family should not go bankrupt for their mother's surgery. We ask why rural health centres are understaffed and how UP can guarantee basic healthcare for every citizen.</span>
+            <span class="hi">किसी परिवार को माँ के इलाज के लिए कर्ज़ में नहीं डूबना चाहिए। हम पूछते हैं कि ग्रामीण स्वास्थ्य केंद्र कम स्टाफ वाले क्यों हैं और UP हर नागरिक को बुनियादी स्वास्थ्य सेवा कैसे दे सकता है।</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       QUESTIONS WE ASK
+  ===================================================== -->
+  <section class="questions" id="questions">
+    <div class="container">
+
+      <div class="questions-header fade-up">
+        <p class="section-label">
+          <span class="en">Questions We Ask</span>
+          <span class="hi">हमारे सवाल</span>
+        </p>
+        <h2 class="section-title">
+          <span class="en">Not accusations.<br/><span>Just questions.</span></span>
+          <span class="hi">आरोप नहीं।<br/><span>बस सवाल।</span></span>
+        </h2>
+        <p>
+          <span class="en">These are questions every responsible citizen has the right to ask — and every responsible government has the duty to answer.</span>
+          <span class="hi">ये वो सवाल हैं जो हर ज़िम्मेदार नागरिक पूछने का हक़ रखता है — और हर ज़िम्मेदार सरकार को जवाब देना चाहिए।</span>
+        </p>
+      </div>
+
+      <div class="questions-grid">
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Employment</span><span class="hi">रोज़गार</span></span>
+          <p class="q-text">
+            <span class="en">When will the 7 lakh government vacancies in UP be filled transparently and on time?</span>
+            <span class="hi">UP में 7 लाख सरकारी रिक्तियां कब तक पारदर्शी तरीके से और समय पर भरी जाएंगी?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Employment</span><span class="hi">रोज़गार</span></span>
+          <p class="q-text">
+            <span class="en">How many private sector jobs have been created in UP districts outside Noida and Lucknow in the last 3 years?</span>
+            <span class="hi">पिछले 3 सालों में नोएडा और लखनऊ से बाहर UP के ज़िलों में कितनी निजी क्षेत्र की नौकरियां बनी हैं?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Education</span><span class="hi">शिक्षा</span></span>
+          <p class="q-text">
+            <span class="en">Why are 1.5 lakh teacher posts vacant in government schools while graduates remain unemployed?</span>
+            <span class="hi">जब स्नातक बेरोज़गार हैं तो सरकारी स्कूलों में 1.5 लाख शिक्षक पद खाली क्यों हैं?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Education</span><span class="hi">शिक्षा</span></span>
+          <p class="q-text">
+            <span class="en">What is the plan to ensure every child has a school with functioning toilets, drinking water, and trained teachers?</span>
+            <span class="hi">यह सुनिश्चित करने की क्या योजना है कि हर बच्चे को शौचालय, पीने का पानी और प्रशिक्षित शिक्षकों वाला स्कूल मिले?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Healthcare</span><span class="hi">स्वास्थ्य</span></span>
+          <p class="q-text">
+            <span class="en">How many of UP's 773 Community Health Centres are running at full capacity with doctors, medicines, and equipment?</span>
+            <span class="hi">UP के 773 सामुदायिक स्वास्थ्य केंद्रों में से कितने डॉक्टर, दवाइयों और उपकरणों के साथ पूरी क्षमता पर चल रहे हैं?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Healthcare</span><span class="hi">स्वास्थ्य</span></span>
+          <p class="q-text">
+            <span class="en">What steps ensure families in Banda or Chitrakoot don't travel 80km to reach a working hospital?</span>
+            <span class="hi">बांदा या चित्रकूट के परिवारों को काम करने वाले अस्पताल के लिए 80 किमी न जाना पड़े — इसके लिए क्या कदम उठाए जा रहे हैं?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Employment</span><span class="hi">रोज़गार</span></span>
+          <p class="q-text">
+            <span class="en">Will the government create a public jobs dashboard showing every vacancy, hire, and pending appointment in real time?</span>
+            <span class="hi">क्या सरकार एक सार्वजनिक जॉब डैशबोर्ड बनाएगी जो हर रिक्ति, नियुक्ति और लंबित नियुक्ति को रियल टाइम में दिखाए?</span>
+          </p>
+        </div>
+
+        <div class="q-card fade-up">
+          <span class="q-tag"><span class="en">Education</span><span class="hi">शिक्षा</span></span>
+          <p class="q-text">
+            <span class="en">When will the mid-day meal programme be publicly audited so every child actually receives their nutritional entitlement?</span>
+            <span class="hi">मिड-डे मील कार्यक्रम का सार्वजनिक ऑडिट कब होगा ताकि हर बच्चे को उसका पोषण-अधिकार वास्तव में मिले?</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       OUR APPROACH  (4 principles on navy background)
+  ===================================================== -->
+  <section class="approach" id="approach">
+    <div class="container">
+
+      <div class="approach-header fade-up">
+        <p class="section-label" style="color:var(--gold);">
+          <span class="en">How We Work</span>
+          <span class="hi">हम कैसे काम करते हैं</span>
+        </p>
+        <h2 class="section-title">
+          <span class="en">Our <span>approach</span> is simple.</span>
+          <span class="hi">हमारा <span>तरीका</span> सरल है।</span>
+        </h2>
+        <p>
+          <span class="en">The best way to improve governance is to be an informed, respectful, and persistent voice — not a destructive one.</span>
+          <span class="hi">शासन सुधारने का सबसे अच्छा तरीका एक सूचित, सम्मानजनक और लगातार आवाज़ बनना है — न कि विनाशकारी।</span>
+        </p>
+      </div>
+
+      <div class="approach-grid stagger">
+
+        <div class="approach-card fade-up">
+          <div class="approach-num">01</div>
+          <div class="approach-title">
+            <span class="en">Ask, don't accuse</span>
+            <span class="hi">पूछो, आरोप मत लगाओ</span>
+          </div>
+          <div class="approach-desc">
+            <span class="en">Every issue we raise is a question or suggestion — not an attack. We give the government good faith and ask for the same in return.</span>
+            <span class="hi">हमारा हर मुद्दा एक सवाल या सुझाव है — हमला नहीं। हम सरकार को अच्छे इरादे से देखते हैं और वही वापस मांगते हैं।</span>
+          </div>
+        </div>
+
+        <div class="approach-card fade-up">
+          <div class="approach-num">02</div>
+          <div class="approach-title">
+            <span class="en">Data over drama</span>
+            <span class="hi">तथ्य, नाटक नहीं</span>
+          </div>
+          <div class="approach-desc">
+            <span class="en">Every claim is backed by government data, RTI responses, and credible reports. No rumour, no misinformation — only verifiable facts.</span>
+            <span class="hi">हर दावा सरकारी आंकड़ों, RTI जवाबों और विश्वसनीय रिपोर्टों पर आधारित है। कोई अफवाह नहीं — केवल सत्यापन योग्य तथ्य।</span>
+          </div>
+        </div>
+
+        <div class="approach-card fade-up">
+          <div class="approach-num">03</div>
+          <div class="approach-title">
+            <span class="en">Solutions, not just problems</span>
+            <span class="hi">समाधान, सिर्फ़ समस्याएं नहीं</span>
+          </div>
+          <div class="approach-desc">
+            <span class="en">For every issue we raise, we propose a better approach — drawing from best practices across India and proven international models.</span>
+            <span class="hi">हर मुद्दे के लिए हम एक बेहतर तरीका सुझाते हैं — भारत के अन्य राज्यों और अंतर्राष्ट्रीय मॉडलों से सीखकर।</span>
+          </div>
+        </div>
+
+        <div class="approach-card fade-up">
+          <div class="approach-num">04</div>
+          <div class="approach-title">
+            <span class="en">Every voice counts</span>
+            <span class="hi">हर आवाज़ मायने रखती है</span>
+          </div>
+          <div class="approach-desc">
+            <span class="en">Awaaz is for every UP citizen — farmer, student, homemaker, worker, doctor, teacher. No caste, no religion, no region. Just one desire: a better UP.</span>
+            <span class="hi">आवाज़ UP के हर नागरिक के लिए है — किसान, छात्र, गृहिणी, मज़दूर, डॉक्टर, शिक्षक। कोई जाति नहीं, कोई धर्म नहीं। बस एक चाहत: बेहतर UP।</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       DO'S AND DON'TS
+  ===================================================== -->
+  <section class="dos-donts" id="guidelines">
+    <div class="container">
+
+      <div class="dos-donts-header fade-up">
+        <p class="section-label">
+          <span class="en">Our Charter</span>
+          <span class="hi">हमारा चार्टर</span>
+        </p>
+        <h2 class="section-title">
+          <span class="en">What Awaaz <span>stands for</span></span>
+          <span class="hi">आवाज़ किसके लिए <span>खड़ा है</span></span>
+        </h2>
+        <p>
+          <span class="en">These are the values every Awaaz member commits to — because change built on respect lasts longer than change built on anger.</span>
+          <span class="hi">ये वो मूल्य हैं जिन्हें आवाज़ का हर सदस्य मानता है — क्योंकि सम्मान पर बना बदलाव, गुस्से पर बने बदलाव से ज़्यादा टिकाऊ होता है।</span>
+        </p>
+      </div>
+
+      <div class="dd-grid">
+
+        <!-- DO's column -->
+        <div class="fade-up">
+          <div class="dd-col-title do">
+            <span>✓</span>
+            <span class="en">We Will Always</span>
+            <span class="hi">हम हमेशा करेंगे</span>
+          </div>
+
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Speak facts backed by data and official sources</span>
+            <span class="hi">आंकड़ों और सरकारी स्रोतों पर आधारित तथ्य बोलेंगे</span>
+          </div>
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Ask questions respectfully and constructively</span>
+            <span class="hi">सम्मानपूर्वक और रचनात्मक तरीके से सवाल पूछेंगे</span>
+          </div>
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Propose better alternatives and solutions</span>
+            <span class="hi">बेहतर विकल्प और समाधान सुझाएंगे</span>
+          </div>
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Welcome everyone regardless of caste, religion, or region</span>
+            <span class="hi">जाति, धर्म या क्षेत्र से परे सभी का स्वागत करेंगे</span>
+          </div>
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Acknowledge and appreciate good work by the government</span>
+            <span class="hi">सरकार के अच्छे कामों को पहचानेंगे और सराहेंगे</span>
+          </div>
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Stay focused on employment, education, and healthcare</span>
+            <span class="hi">रोज़गार, शिक्षा और स्वास्थ्य पर केंद्रित रहेंगे</span>
+          </div>
+          <div class="dd-item do">
+            <span class="dd-icon">✅</span>
+            <span class="en">Use legal, peaceful, and democratic means at all times</span>
+            <span class="hi">हमेशा क़ानूनी, शांतिपूर्ण और लोकतांत्रिक तरीके अपनाएंगे</span>
+          </div>
+        </div>
+
+        <!-- DON'TS column -->
+        <div class="fade-up">
+          <div class="dd-col-title dont">
+            <span>✕</span>
+            <span class="en">We Will Never</span>
+            <span class="hi">हम कभी नहीं करेंगे</span>
+          </div>
+
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Attack, abuse, or insult any political party or leader</span>
+            <span class="hi">किसी भी राजनीतिक दल या नेता पर हमला, अपमान या गाली नहीं देंगे</span>
+          </div>
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Spread unverified rumours or misinformation</span>
+            <span class="hi">असत्यापित अफवाहें या गलत सूचना नहीं फैलाएंगे</span>
+          </div>
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Divide people on the basis of caste, religion, or region</span>
+            <span class="hi">जाति, धर्म या क्षेत्र के आधार पर लोगों को नहीं बांटेंगे</span>
+          </div>
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Use hate speech or inflammatory language of any kind</span>
+            <span class="hi">किसी भी प्रकार की नफ़रती भाषा या भड़काऊ बोली का उपयोग नहीं करेंगे</span>
+          </div>
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Compare or criticise current vs past governments</span>
+            <span class="hi">वर्तमान और पिछली सरकारों की तुलना या आलोचना नहीं करेंगे</span>
+          </div>
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Allow personal attacks or trolling in our community</span>
+            <span class="hi">हमारे समुदाय में व्यक्तिगत हमले या ट्रोलिंग को बर्दाश्त नहीं करेंगे</span>
+          </div>
+          <div class="dd-item dont">
+            <span class="dd-icon">🚫</span>
+            <span class="en">Deviate from our three core focus areas into unrelated politics</span>
+            <span class="hi">अपने तीन मुख्य मुद्दों से भटककर असंबंधित राजनीति में नहीं जाएंगे</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       INSTAGRAM SECTION
+  ===================================================== -->
+  <section class="instagram-section" id="instagram">
+    <div class="container">
+      <div class="insta-box">
+
+        <div class="insta-text">
+          <h3>
+            <span class="en">Follow us on Instagram</span>
+            <span class="hi">Instagram पर हमें Follow करें</span>
+          </h3>
+          <p>
+            <span class="en">Daily updates, questions, and voices from UP — join our community @awaaz.movement</span>
+            <span class="hi">UP से रोज़ाना अपडेट, सवाल और आवाज़ें — हमारे समुदाय से जुड़ें @awaaz.movement</span>
+          </p>
+        </div>
+
+        <a class="insta-btn"
+           href="https://www.instagram.com/awaaz.movement/?utm_source=ig_web_button_share_sheet"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Follow Awaaz on Instagram">
+          <!-- Instagram icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          @awaaz.movement
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       JOIN  /  BIG CTA
+  ===================================================== -->
+  <section class="join" id="join">
+    <div class="container">
+      <div class="join-content fade-up">
+
+        <p class="join-eyebrow">
+          <span class="en">Be Part of the Change</span>
+          <span class="hi">बदलाव का हिस्सा बनो</span>
+        </p>
+
+        <h2 class="join-title">
+          <span class="en">Awaaz Uthao.<br/>UP Sunegaa.</span>
+          <span class="hi">आवाज़ उठाओ।<br/>UP सुनेगा।</span>
+        </h2>
+
+        <p class="join-subline">
+          <span class="en">आवाज़ उठाओ — UP सुनेगा।</span>
+          <span class="hi">Raise your voice — UP is listening.</span>
+        </p>
+
+        <p class="join-desc">
+          <span class="en">Join thousands of UP citizens raising their voice for better employment, education, and healthcare — peacefully, respectfully, and powerfully.</span>
+          <span class="hi">UP के हज़ारों नागरिकों के साथ जुड़ें जो बेहतर रोज़गार, शिक्षा और स्वास्थ्य के लिए अपनी आवाज़ उठा रहे हैं — शांतिपूर्वक, सम्मान के साथ, और ताक़त के साथ।</span>
+        </p>
+
+        <a href="https://www.instagram.com/awaaz.movement/?utm_source=ig_web_button_share_sheet"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-white">
+          <span class="en">Join on Instagram →</span>
+          <span class="hi">Instagram पर जुड़ें →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand-name">AWAAZ</div>
+          <div class="footer-brand-tag">आवाज़ — The Voice of UP</div>
+        </div>
+
+        <!-- Focus areas -->
+        <div>
+          <p class="footer-col-title">
+            <span class="en">Focus Areas</span>
+            <span class="hi">मुख्य मुद्दे</span>
+          </p>
+          <ul class="footer-links">
+            <li><a href="#pillars"><span class="en">Employment · रोज़गार</span><span class="hi">रोज़गार · Employment</span></a></li>
+            <li><a href="#pillars"><span class="en">Education · शिक्षा</span><span class="hi">शिक्षा · Education</span></a></li>
+            <li><a href="#pillars"><span class="en">Healthcare · स्वास्थ्य</span><span class="hi">स्वास्थ्य · Healthcare</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Movement links -->
+        <div>
+          <p class="footer-col-title">
+            <span class="en">Movement</span>
+            <span class="hi">आंदोलन</span>
+          </p>
+          <ul class="footer-links">
+            <li><a href="#about"><span class="en">About Awaaz</span><span class="hi">हमारे बारे में</span></a></li>
+            <li><a href="#questions"><span class="en">Questions We Ask</span><span class="hi">हमारे सवाल</span></a></li>
+            <li><a href="#approach"><span class="en">Our Approach</span><span class="hi">हमारा तरीका</span></a></li>
+            <li><a href="#guidelines"><span class="en">Do's &amp; Don'ts</span><span class="hi">क्या करें, क्या न करें</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <p class="footer-col-title">
+            <span class="en">Connect</span>
+            <span class="hi">जुड़ें</span>
+          </p>
+          <ul class="footer-links">
+            <li>
+              <a href="https://www.instagram.com/awaaz.movement/?utm_source=ig_web_button_share_sheet"
+                 target="_blank" rel="noopener noreferrer">
+                Instagram — @awaaz.movement
+              </a>
+            </li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter / X</a></li>
+            <li><a href="#">WhatsApp Community</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© 2025 Awaaz — The Voice of UP. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          <span class="en">Awaaz is an independent citizen's movement. We do not represent or criticise any political party. Our sole focus is constructive dialogue on employment, education, and healthcare in Uttar Pradesh.</span>
+          <span class="hi">आवाज़ एक स्वतंत्र नागरिक आंदोलन है। हम किसी भी राजनीतिक दल का प्रतिनिधित्व नहीं करते और न ही उनकी आलोचना करते हैं। हमारा एकमात्र ध्यान उत्तर प्रदेश में रोज़गार, शिक्षा और स्वास्थ्य पर रचनात्मक संवाद है।</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+
+
 </body>
 </html>
